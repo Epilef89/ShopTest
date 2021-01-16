@@ -36,7 +36,7 @@ class LaunchScreenViewControllerTests: XCTestCase
   {
     let bundle = Bundle.main
     let storyboard = UIStoryboard(name: "LaunchScreen", bundle: bundle)
-    sut = storyboard.instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
+    sut = storyboard.instantiateViewController(withIdentifier: "LaunchScreenViewController") as? LaunchScreenViewController
   }
   
   func loadView()
