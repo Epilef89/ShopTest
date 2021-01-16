@@ -10,6 +10,8 @@ target 'ShopTest' do
 pod 'Firebase/Performance'
 pod 'Firebase/Crashlytics'
 pod 'Firebase/Analytics'
+pod 'SwiftKeychainWrapper'
+pod 'lottie-ios'
 
   target 'ShopTestTests' do
     inherit! :search_paths

@@ -23,8 +23,8 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
@@ -54,7 +54,8 @@
       buildConfiguration = "QA"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO"
@@ -65,6 +66,16 @@
                BlueprintIdentifier = "B7BC628F25B24D26004624EA"
                BuildableName = "ShopTestTests.xctest"
                BlueprintName = "ShopTestTests"
+               ReferencedContainer = "container:ShopTest.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B792029525B217A700C5D3B8"
+               BuildableName = "ShopTestUITests.xctest"
+               BlueprintName = "ShopTestUITests"
                ReferencedContainer = "container:ShopTest.xcodeproj">
             </BuildableReference>
          </TestableReference>

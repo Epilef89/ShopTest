@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
         setUpUI()
         modalPresentationStyle = .overFullScreen
         self.navigationController?.modalPresentationStyle = .overFullScreen
-
+        print("OTRA")
     }
     
     
