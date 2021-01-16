@@ -1,0 +1,14 @@
+//
+//  Develop.xcconfig
+//  ShopTest
+//
+//  Created by david cortes on 15/01/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+CONFIGURATION = Develop
+google_firebase_file = GoogleService-Info-Dev
+baseURL = https:/$()/
+displayNameApp = Develop

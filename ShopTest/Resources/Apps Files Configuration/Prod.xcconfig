@@ -1,0 +1,14 @@
+//
+//  Prod.xcconfig
+//  ShopTest
+//
+//  Created by david cortes on 15/01/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+CONFIGURATION = Release
+google_firebase_file = GoogleService-Info
+baseURL = https:/$()/
+displayNameApp = Shop

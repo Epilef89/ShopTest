@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreData
+import Firebase
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        configurateFirebase()
         return true
     }
 
@@ -75,6 +78,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    //MARK: - Utils func
+    
+    /// Method that configures firebase according to the specified configuration
+    func configurateFirebase() {
+        
+        //Get file path according to the environment
+        guard let filePath = Bundle.main.path(forResource: Environment.getGoogleFirebaseFile, ofType: "plist") else {
+            fatalError("GoogleFirebase file not found")
+        }
+        //Set options with content in file
+        guard let options = FirebaseOptions(contentsOfFile: filePath) else {
+            fatalError("Error created option file from firebase")
+        }
+        //Star firebase according to options
+        FirebaseApp.configure(options: options)
+
     }
 
 }
