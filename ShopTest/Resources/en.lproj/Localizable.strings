@@ -5,3 +5,14 @@
   Created by david cortes on 15/01/21.
   
 */
+////*******************GENERAL**********************************
+"appName" = "Shopping";
+
+////******************LAUNCH VIEW*******************************
+"LaunchView.animationViewMane" = "shoppingBag";
+
+
+////******************SEARCH VIEW*******************************
+"searchView.navigationBar.Title" = "Shopping";
+"searchView.searchBar.placeholder" = "Busca un producto...";
+"searchView.initialMessage" = "Buscaremos en nuestro inventario para ofrecerte los mejores productos";

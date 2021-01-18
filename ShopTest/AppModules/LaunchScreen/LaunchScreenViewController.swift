@@ -28,15 +28,6 @@ class LaunchScreenViewController: BaseViewController, LaunchScreenDisplayLogic {
         setup()
     }
     
-    init() {
-        let className = NSStringFromClass(LaunchScreenViewController.self).split(separator: ".")
-        if className.count > 1{
-            super.init(nibName: "\(className[1])", bundle: nil)
-            setup()
-        }else{
-            super.init()
-        }
-    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -45,6 +36,7 @@ class LaunchScreenViewController: BaseViewController, LaunchScreenDisplayLogic {
     
     // MARK: Setup
     private func setup() {
+        navigationBar.isHidden = true
         let viewController = self
         let interactor = LaunchScreenInteractor()
         let presenter = LaunchScreenPresenter()
@@ -57,15 +49,6 @@ class LaunchScreenViewController: BaseViewController, LaunchScreenDisplayLogic {
         router.dataStore = interactor
     }
     
-    // MARK: Routing
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
     
     // MARK: View lifecycle
     override func viewDidLoad() {
@@ -135,7 +118,7 @@ class LaunchScreenViewController: BaseViewController, LaunchScreenDisplayLogic {
         view.addConstraints([centerXLabelConstraint, centerYLabelConstraint])
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            print("Nav to next View")
+            self.router?.routeToSearchView()
         }
     }
 }

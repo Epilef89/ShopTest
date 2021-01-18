@@ -12,6 +12,7 @@ pod 'Firebase/Crashlytics'
 pod 'Firebase/Analytics'
 pod 'SwiftKeychainWrapper'
 pod 'lottie-ios'
+pod 'SDWebImage'
 
   target 'ShopTestTests' do
     inherit! :search_paths
