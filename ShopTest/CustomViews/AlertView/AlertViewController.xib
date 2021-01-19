@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertViewController" customModule="ShopTest" customModuleProvider="target">
+            <connections>
+                <outlet property="contentMessageView" destination="rLz-GD-3m4" id="cGj-5q-EJT"/>
+                <outlet property="messageLabel" destination="LoR-Gw-tkB" id="Keu-J1-UoA"/>
+                <outlet property="primaryButton" destination="hGu-Ov-CNv" id="Se4-rt-aZA"/>
+                <outlet property="secundaryButton" destination="LAR-4T-Q8y" id="YE0-W6-KGL"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLz-GD-3m4">
+                    <rect key="frame" x="57" y="391" width="300" height="114.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BeH-cJ-MA5">
+                            <rect key="frame" x="16" y="32" width="268" height="66.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoR-Gw-tkB" customClass="AlertMessage" customModule="ShopTest" customModuleProvider="target">
+                                    <rect key="frame" x="113.5" y="0.0" width="41.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8HC-nK-7Pf">
+                                    <rect key="frame" x="0.0" y="36.5" width="268" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGu-Ov-CNv" customClass="MainButton" customModule="ShopTest" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="126" height="30"/>
+                                            <state key="normal" title="Button"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAR-4T-Q8y" customClass="SecundaryButton" customModule="ShopTest" customModuleProvider="target">
+                                            <rect key="frame" x="142" y="0.0" width="126" height="30"/>
+                                            <state key="normal" title="Button"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="8HC-nK-7Pf" firstAttribute="leading" secondItem="BeH-cJ-MA5" secondAttribute="leading" id="2ac-D4-FSU"/>
+                                <constraint firstAttribute="trailing" secondItem="8HC-nK-7Pf" secondAttribute="trailing" id="ijN-re-AmT"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="BeH-cJ-MA5" firstAttribute="top" secondItem="rLz-GD-3m4" secondAttribute="top" constant="32" id="DAv-M9-lFJ"/>
+                        <constraint firstItem="BeH-cJ-MA5" firstAttribute="leading" secondItem="rLz-GD-3m4" secondAttribute="leading" constant="16" id="Nrw-hR-g6R"/>
+                        <constraint firstAttribute="width" constant="300" id="Ulx-IP-6YY"/>
+                        <constraint firstAttribute="trailing" secondItem="BeH-cJ-MA5" secondAttribute="trailing" constant="16" id="bge-zM-0es"/>
+                        <constraint firstAttribute="bottom" secondItem="BeH-cJ-MA5" secondAttribute="bottom" constant="16" id="j2U-Gt-K39"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20114436619718309" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="rLz-GD-3m4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="H2n-z9-QiP"/>
+                <constraint firstItem="rLz-GD-3m4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Y6N-kZ-0DK"/>
+            </constraints>
+            <point key="canvasLocation" x="-33" y="133"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

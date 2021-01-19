@@ -10,5 +10,5 @@
 
 CONFIGURATION = Develop
 google_firebase_file = GoogleService-Info-Dev
-baseURL = https:/$()/
+baseURL = https:/$()/api.mercadolibre.com
 displayNameApp = Develop

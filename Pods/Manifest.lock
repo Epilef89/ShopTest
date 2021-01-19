@@ -103,6 +103,9 @@ PODS:
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.11)
   - Protobuf (3.13.0)
+  - SDWebImage (5.9.3):
+    - SDWebImage/Core (= 5.9.3)
+  - SDWebImage/Core (5.9.3)
   - SwiftKeychainWrapper (4.0.1)
 
 DEPENDENCIES:
@@ -110,6 +113,7 @@ DEPENDENCIES:
   - Firebase/Crashlytics
   - Firebase/Performance
   - lottie-ios
+  - SDWebImage
   - SwiftKeychainWrapper
 
 SPEC REPOS:
@@ -132,6 +136,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
+    - SDWebImage
     - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
@@ -153,8 +158,9 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
+  SDWebImage: a31ee8e90a97303529e03fb0c333eae0eacb88e9
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: 8e9c9dac5e796c399f9fd434ee4a7852f5262298
+PODFILE CHECKSUM: 7834b4091752f1a87ce4307c8e50d4f0ce210556
 
 COCOAPODS: 1.8.4

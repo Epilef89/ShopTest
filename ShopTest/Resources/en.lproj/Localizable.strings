@@ -5,3 +5,25 @@
   Created by david cortes on 15/01/21.
   
 */
+////*******************GENERAL**********************************
+"appName" = "Shopping";
+"aceptButton" = "Ok";
+"cancelButton" = "Cancel";
+"retryButton" = "Try again";
+"used" = "Used";
+"new" = "New";
+////******************LAUNCH VIEW*******************************
+"LaunchView.animationViewMane" = "shoppingBag";
+
+
+////******************SEARCH VIEW*******************************
+"searchView.navigationBar.Title" = "Shopping";
+"searchView.searchBar.placeholder" = "Search a product...";
+"searchView.initialMessage" = "We will search our inventory to offer you the best products.";
+"searchView.quantityResultsMessage" = "showing $0 results for \"$1\"";
+
+
+////******************ERROR MESSAGES****************************
+"errorMessage.GeneralResponse" = "We were unable to process your request";
+"errorMessage.NoData" = "Without results to display, change your search criteria.";
+"errorMessage.NetworkConexion" = "Check your internet connection.";

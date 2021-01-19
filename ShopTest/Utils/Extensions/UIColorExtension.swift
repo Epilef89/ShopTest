@@ -11,8 +11,8 @@ import UIKit
 // Color palette
 extension UIColor {
     
-    @nonobjc class var backgrounMainColor: UIColor {
-        return UIColor(red: 252.0/255.0, green: 242.0/255.0, blue: 115.0/255.0, alpha: 1.0)
+    @nonobjc class var yellowMainColor: UIColor {
+        return UIColor(red: 250.0/255.0, green: 230.0/255.0, blue: 77.0/255.0, alpha: 1.0)
     }
     
     @nonobjc class var blueMainColor: UIColor {
@@ -21,5 +21,9 @@ extension UIColor {
     
     @nonobjc class var grayMainColor: UIColor {
         return UIColor(red: 237.0 / 255.0, green: 237.0 / 255.0, blue: 237.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var transparentBackgroundAlert: UIColor {
+        return UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0, alpha: 0.5)
     }
 }

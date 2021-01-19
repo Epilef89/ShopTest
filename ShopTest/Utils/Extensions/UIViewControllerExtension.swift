@@ -31,11 +31,3 @@ extension UIViewController {
         }
     }
 }
-
-public func print(_ items: String..., filename: String = #file, function : String = #function, line: Int = #line, separator: String = " ", terminator: String = "\n") {
-    #if Develop || QA
-        let pretty = "\(URL(fileURLWithPath: filename).lastPathComponent) [#\(line)] \(function)\n\t-> "
-        let output = items.map { "\($0)" }.joined(separator: separator)
-        Swift.print(pretty+output, terminator: terminator)
-    #endif
-}

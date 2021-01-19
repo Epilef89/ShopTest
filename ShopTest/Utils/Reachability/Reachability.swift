@@ -16,17 +16,25 @@ enum ReachabilityStatus {
 }
 
 struct ReachabilityManager {
-    func checkReachable() -> Bool {
+    func checkReachable() -> ReachabilityStatus {
         let reachability = SCNetworkReachabilityCreateWithName(nil, "www.google.com")
         var flags = SCNetworkReachabilityFlags()
         guard let reachabilityG = reachability else {
-            return false
+            return .unreachable
         }
+
         SCNetworkReachabilityGetFlags(reachabilityG, &flags)
-        if !isNetworkReachable(with: flags) {
-            return false
+        if isNetworkReachable(with: flags) {
+            if flags.contains(.isWWAN) {
+                return .mobile
+            }
+
+            return .wifi
+        } else if !isNetworkReachable(with: flags) {
+           return .unreachable
+        } else {
+            return .unknow
         }
-        return true
     }
 
     func isNetworkReachable(with flags: SCNetworkReachabilityFlags) -> Bool {

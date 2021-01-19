@@ -10,5 +10,5 @@
 
 CONFIGURATION = QA
 google_firebase_file = GoogleService-Info-QA
-baseURL = https:/$()/
+baseURL = https:/$()/api.mercadolibre.com
 displayNameApp = QA

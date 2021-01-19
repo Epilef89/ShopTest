@@ -21,7 +21,7 @@ class LaunchScreenInteractor: LaunchScreenBusinessLogic, LaunchScreenDataStore {
     //var name: String = ""
     
     func loadInitialInformation(request: LaunchScreen.LoadInitalData.Request) {
-        let response = LaunchScreen.LoadInitalData.Response(nameAnimation: "shoppingBag", type: "json", nameApp: "Shopping")
+        let response = LaunchScreen.LoadInitalData.Response()
         presenter?.presentInitialInformation(response: response)
     }
 }

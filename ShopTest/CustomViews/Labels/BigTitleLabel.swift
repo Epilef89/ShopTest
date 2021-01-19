@@ -27,6 +27,6 @@ private extension BigTitleLabel {
     func configure() {
         textColor = UIColor.blueMainColor
         font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: UIFont.getFont(.bold, size: 50))
-
+        numberOfLines = 0
     }
 }

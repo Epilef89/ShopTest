@@ -29,7 +29,7 @@ class ReachabilityTest: XCTestCase {
         let reachabilityStatus = sut.checkReachable()
         
         //Then
-        XCTAssertTrue(reachabilityStatus == true, "Check internet connection!")
+        XCTAssertTrue(reachabilityStatus != .unreachable, "Check internet connection!")
         
     }
 
