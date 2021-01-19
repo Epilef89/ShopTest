@@ -43,7 +43,7 @@ class LaunchScreenInteractorTests: XCTestCase{
     
     // MARK: Tests
     
-    func test(){
+    func testLaunchScreenInteractor_whenLoadInitialInformation(){
         // Given
         let spy = LaunchScreenPresentationLogicSpy()
         sut.presenter = spy

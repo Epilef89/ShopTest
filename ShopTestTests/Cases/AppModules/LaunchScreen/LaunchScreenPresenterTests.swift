@@ -45,7 +45,7 @@ class LaunchScreenPresenterTests: XCTestCase{
         // Given
         let spy = LaunchScreenDisplayLogicSpy()
         sut.viewController = spy
-        let response = LaunchScreen.LoadInitalData.Response(nameAnimation: "", type: "", nameApp: "")
+        let response = LaunchScreen.LoadInitalData.Response()
         
         // When
         sut.presentInitialInformation(response: response)

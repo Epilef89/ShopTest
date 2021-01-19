@@ -19,35 +19,44 @@ protocol SearchDataStore {
 
 class SearchInteractor: SearchBusinessLogic, SearchDataStore {
     var presenter: SearchPresentationLogic?
-    var worker: SearchWorker?
+    var worker: SearchWorker = SearchWorker()
     var offset: Int = 0
     var term:String = ""
     var wattingService:Bool = false
+
     
     func loadInitialInformation(request: Search.LoadInitalData.Request) {
         
-        let navBarTitle = NSLocalizedString("searchView.navigationBar.Title", comment: "")
-        let placeholderSearchView = NSLocalizedString("searchView.searchBar.placeholder", comment: "")
-        let initialMessage = NSLocalizedString("searchView.initialMessage", comment: "")
-        let response = Search.LoadInitalData.Response(navBarTitle: navBarTitle, placeholderSearchView: placeholderSearchView, initialMessage: initialMessage)
+        let response = Search.LoadInitalData.Response()
         presenter?.presentInitialInformation(response: response)
     }
     
     func searchByTerm(request:Search.SearchByTerm.Request){
         
         #warning("Pendiente cambiar de tienda")
-        KeyManager().set(country: "MLA")
+        KeyManager().set(country: "MCO")
         let country = KeyManager().getCountry() ?? ""
         offset = 0
         term = request.term
         wattingService = true
-        getResultsBy(term: request.term, country: country, offset: offset) { (results, error)  in
+        worker.fetchResultsBy(request.term, country: country, offset: offset) { (response, result) in
             self.wattingService = false
-            if error == nil{
-                let response = Search.SearchByTerm.Response(resultSearch: results)
-                self.presenter?.presentShowResults(response: response)
-            }else{
-                let response = Search.ShowError.Response(errorMessage: error ?? CustomErrors.errorGeneralResponse)
+            switch result {
+            case .success:
+                guard let results = result.value?.results else {
+                    return
+                }
+                let quantity = result.value?.paging?.total ?? 0
+                if results.count > 0{
+                    let response = Search.SearchByTerm.Response(resultSearch: results, totalResultsCount: quantity, term: request.term)
+                    self.presenter?.presentShowResults(response: response)
+                }else{
+                    let response = Search.ShowError.Response(errorMessage: CustomErrors.errorNoData, retry: false)
+                    self.presenter?.presentError(response: response)
+                }
+                
+            case .failure (let error):
+                let response = Search.ShowError.Response(errorMessage: error ?? CustomErrors.errorGeneralResponse, retry: true)
                 self.presenter?.presentError(response: response)
             }
         }
@@ -55,36 +64,29 @@ class SearchInteractor: SearchBusinessLogic, SearchDataStore {
     
     func getMoreItemsByPreviousTerm(request:Search.GetMoreResults.Request){
         let country = KeyManager().getCountry() ?? ""
-        offset += 1000
+        offset += 1
         wattingService = true
-        getResultsBy(term: term, country: country, offset: offset) { (results, error) in
-            self.wattingService = false
-            if error == nil{
-                let response = Search.GetMoreResults.Response(resultSearch: results)
-                self.presenter?.presentMoreResults(response: response)
-            }else{
-                let response = Search.ShowError.Response(errorMessage: CustomErrors.errorGeneralResponse)
-                self.presenter?.presentError(response: response)
-            }
-        }
-    }
-    
-    //Functions
-    
-    private func getResultsBy(term:String, country:String, offset:Int, completionHandler: @escaping ([ResultSearch], NSError?) -> Void){
-        let worker = SearchWorker()
         worker.fetchResultsBy(term,country: country, offset:offset) { (response, result) in
+            self.wattingService = false
             switch result {
             case .success:
                 guard let results = result.value?.results else {
-                    completionHandler([], CustomErrors.errorGeneralResponse)
                     return
                 }
-                completionHandler(results, nil)
-            case .failure:
-                completionHandler([], CustomErrors.errorGeneralResponse)
+                let quantity = result.value?.paging?.total ?? 0
+                if results.count > 0{
+                    let response = Search.GetMoreResults.Response(resultSearch: results, totalResultsCount: quantity)
+                    self.presenter?.presentMoreResults(response: response)
+                }else{
+                    let response = Search.ShowError.Response(errorMessage: CustomErrors.errorNoData, retry: false)
+                    self.presenter?.presentError(response: response)
+                }
+            case .failure (let error):
+                let response = Search.ShowError.Response(errorMessage: error ?? CustomErrors.errorGeneralResponse, retry: true)
+                self.presenter?.presentError(response: response)
             }
         }
+
     }
 }
 

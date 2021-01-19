@@ -12,14 +12,12 @@ class SearchPresenterTests: XCTestCase{
     // MARK: Subject under test
     
     var sut: SearchPresenter!
-    var response: Search.LoadInitalData.Response!
-    
+    var spy: SearchDisplayLogicSpy!
     // MARK: Test lifecycle
     
     override func setUp(){
         super.setUp()
         setupSearchPresenter()
-        response = Search.LoadInitalData.Response(navBarTitle: NSLocalizedString("searchView.navigationBar.Title", comment: ""), placeholderSearchView: NSLocalizedString("searchView.searchBar.placeholder", comment: ""), initialMessage: NSLocalizedString("searchView.initialMessage", comment: ""))
     }
     
     override func tearDown(){
@@ -30,6 +28,21 @@ class SearchPresenterTests: XCTestCase{
     
     func setupSearchPresenter(){
         sut = SearchPresenter()
+        spy = SearchDisplayLogicSpy()
+        sut.viewController = spy
+    }
+    
+    //MARK: Given
+    
+    func getSearchResults()->[ResultSearch]{
+        let testBundle = Bundle(for: type(of: self))
+        let path = testBundle.path(forResource: "items", ofType: "json")
+        let data =  try! Data(contentsOf: URL(fileURLWithPath: path!), options: .alwaysMapped)
+        let decoder = JSONDecoder()
+        guard let searchResultsCodable = try? decoder.decode(SearchResults.self, from: data) else {
+            return [] as [ResultSearch]
+        }
+        return searchResultsCodable.results ?? []
     }
     
     // MARK: Test doubles
@@ -39,13 +52,16 @@ class SearchPresenterTests: XCTestCase{
         var displaySearchResultsCalled = false
         var displayMoreItemsCalled = false
         var displayMessageErrorCalled = false
+        var totalResultsTitle = ""
         
         
         func displayInitialInformation(viewModel: Search.LoadInitalData.ViewModel) {
+            
             displayInitialInformationCalled = true
         }
         
         func displaySearchResults(viewModel: Search.SearchByTerm.ViewModel) {
+            totalResultsTitle = viewModel.totalResultsCount
             displaySearchResultsCalled = true
         }
         
@@ -61,15 +77,53 @@ class SearchPresenterTests: XCTestCase{
     
     // MARK: Tests
     
-    func testPresentSomething(){
+    func testSearchPresenter_WhenPresentInitialInformation(){
         // Given
-        let spy = SearchDisplayLogicSpy()
-        sut.viewController = spy
+        let LoadInitialDataresponse =  Search.LoadInitalData.Response()
         
         // When
-        sut.presentInitialInformation(response: response)
+        sut.presentInitialInformation(response: LoadInitialDataresponse)
         
         // Then
-        XCTAssertTrue(spy.displayInitialInformationCalled, "presentInitialInformation(response:) should ask the view controller to display the result")
+        
+        XCTAssertTrue(spy.displayInitialInformationCalled, "presentInitialInformation(response:) should ask the view controller to display the initialData")
+    }
+    
+    func testSearchPresenter_WhenPresentSearchResults(){
+        //Given
+        let results = getSearchResults()
+        let searchByTermResponse = Search.SearchByTerm.Response(resultSearch: results, totalResultsCount: results.count, term: "")
+        
+        //When
+        sut.presentShowResults(response: searchByTermResponse)
+        let totlaResultsCount = NSLocalizedString("searchView.quantityResultsMessage", comment: "")
+            .replacingOccurrences(of: "$0", with: String(searchByTermResponse.resultSearch.count))
+            .replacingOccurrences(of: "$1", with: searchByTermResponse.term)
+        //Then
+        XCTAssertTrue(spy.displaySearchResultsCalled, "presentShowResults(response:) should ask the view controller to display the resultsByTerm")
+        XCTAssertEqual(spy.totalResultsTitle, totlaResultsCount)
+    }
+    
+    func testSearchPresenter_WhenPresentMoreItems(){
+        //Given
+        let moreResultsResponse = Search.GetMoreResults.Response(resultSearch: [], totalResultsCount: 0)
+        
+        //When
+        sut.presentMoreResults(response: moreResultsResponse)
+        
+        //Then
+        XCTAssertTrue(spy.displayMoreItemsCalled, "presentMoreResults(response:) should ask the view controller to display more Items")
+    }
+    
+    func testSearchPresenter_WhenPresentMessageError(){
+        //Given
+        let showErrorResponse = Search.ShowError.Response(errorMessage: CustomErrors.errorGeneralResponse, retry: false)
+        
+        //When
+        sut.presentError(response: showErrorResponse)
+        
+        //Then
+        XCTAssert(spy.displayMessageErrorCalled, "presentError(response:) should ask the view controller to display message error")
+        
     }
 }

@@ -61,7 +61,7 @@ extension URLRequest: URLRequestConvertible {
 
 enum Result<Value> {
     case success(Value)
-    case failure(Error?)
+    case failure(NSError?)
     
     /// Returns `true` if the result is a success, `false` otherwise.
     var isSuccess: Bool {

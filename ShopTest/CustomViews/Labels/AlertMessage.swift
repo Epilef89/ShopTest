@@ -1,13 +1,13 @@
 //
-//  AmountLabel.swift
+//  AlertMessage.swift
 //  ShopTest
 //
-//  Created by david cortes on 17/01/21.
+//  Created by david cortes on 18/01/21.
 //
 
 import UIKit
 
-class AmountLabel: UILabel {
+class AlertMessage: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -23,10 +23,11 @@ class AmountLabel: UILabel {
     }
 }
 
-private extension AmountLabel {
+private extension AlertMessage {
     func configure() {
         textColor = UIColor.black
-        font = UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.getFont(.bold, size: 16))
+        font = UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.getFont(.regular, size: 16))
         numberOfLines = 0
+        textAlignment = .center
     }
 }

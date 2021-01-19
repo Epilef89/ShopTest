@@ -14,9 +14,6 @@ enum Search {
         struct Request {
         }
         struct Response {
-            var navBarTitle:String
-            var placeholderSearchView:String
-            var initialMessage:String
         }
         struct ViewModel {
             var navBarTitle:String
@@ -31,20 +28,26 @@ enum Search {
         }
         struct Response{
             var resultSearch:[ResultSearch]
+            var totalResultsCount:Int
+            var term:String
         }
         struct ViewModel{
             var resultSearch:[ResultSearch]
+            var totalResultsCount:String
         }
     }
     
     enum GetMoreResults{
         struct Request {
+            var retry:Bool
         }
         struct Response {
             var resultSearch:[ResultSearch]
+            var totalResultsCount:Int
         }
         struct ViewModel{
             var resultSearch:[ResultSearch]
+            var totalResultsCount:String
         }
     }
     
@@ -53,9 +56,13 @@ enum Search {
         }
         struct Response {
             var errorMessage:NSError
+            var retry:Bool
         }
         struct ViewModel {
             var errorMessage:String
+            var retry:Bool
+            var titlePrimaryButton:String
+            var titleSecundaryButton:String
         }
     }
 }

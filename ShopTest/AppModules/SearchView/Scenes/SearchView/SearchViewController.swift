@@ -111,9 +111,9 @@ class SearchViewController: BaseViewController, SearchDisplayLogic {
         
     }
     
-    func searchMoreItems(){
+    func searchMoreItems(retry:Bool = false){
         if !(router?.dataStore?.wattingService ?? false){
-            let request = Search.GetMoreResults.Request()
+            let request = Search.GetMoreResults.Request(retry: retry)
             interactor?.getMoreItemsByPreviousTerm(request: request)
             self.showLoader(show: true)
         }
@@ -134,6 +134,7 @@ class SearchViewController: BaseViewController, SearchDisplayLogic {
         self.searchByTems = viewModel
         self.resultsTableView.reloadData()
         self.resultsTableView.isHidden = false
+        self.resultsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         self.showLoader(show: false)
     }
     
@@ -144,9 +145,20 @@ class SearchViewController: BaseViewController, SearchDisplayLogic {
     }
     
     func displayMessageError(viewmodel:Search.ShowError.ViewModel){
+        self.searchController.isActive = false
         DispatchQueue.main.async {
+            
             self.showLoader(show: false)
         }
+        
+        if viewmodel.retry{
+            self.showAlertInfo(mainText: viewmodel.errorMessage, primaryButtonTitle: viewmodel.titlePrimaryButton, secundaryButtonTitle: viewmodel.titleSecundaryButton) {
+                self.searchMoreItems(retry: true)
+            }
+        }else{
+            self.showAlertInfo(mainText: viewmodel.errorMessage)
+        }
+        
         
     }
     
@@ -224,11 +236,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
         guard let searchItems = searchByTems?.resultSearch else{return}
         
         if searchItems.count > 0{
-            if indexPath.row == searchItems.count - 2{
+            if indexPath.row == searchItems.count - 1{
                 self.searchMoreItems()
             }
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return searchByTems?.totalResultsCount
     }
     
     

@@ -13,9 +13,6 @@ enum LaunchScreen {
         struct Request {
         }
         struct Response {
-            var nameAnimation:String
-            var type:String
-            var nameApp:String
         }
         struct ViewModel {
             var nameAnimation:String

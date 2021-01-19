@@ -195,6 +195,20 @@ class BaseViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func showAlertInfo(mainText: String, titleButton: String = NSLocalizedString("aceptButton", comment: ""),action: @escaping () -> Void = {}) {
+        let alert = AlertManager.alertInfoWithAction(mainText: mainText, actionButtonTitle: titleButton, action:action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlertInfo(mainText: String, primaryButtonTitle: String = NSLocalizedString("aceptButton", comment: ""),primaryButtonAction: @escaping () -> Void = {}, secundaryButtonTitle:String, secundaryButtonAction:@escaping ()->Void) {
+        let alert = AlertManager.alertChooseAction(mainText: mainText,
+                                                   actionButtonTitle: primaryButtonTitle,
+                                                   positiveAction: primaryButtonAction,
+                                                   secundaryButtonTitle: secundaryButtonTitle,
+                                                   negativeAction: secundaryButtonAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 
 }
 

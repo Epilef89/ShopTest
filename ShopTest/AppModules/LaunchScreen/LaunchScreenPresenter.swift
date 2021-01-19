@@ -15,7 +15,7 @@ class LaunchScreenPresenter: LaunchScreenPresentationLogic {
     weak var viewController: LaunchScreenDisplayLogic?
     
     func presentInitialInformation(response: LaunchScreen.LoadInitalData.Response) {
-        let viewModel = LaunchScreen.LoadInitalData.ViewModel(nameAnimation: response.nameAnimation, type: response.type, nameApp: response.nameApp)
+        let viewModel = LaunchScreen.LoadInitalData.ViewModel(nameAnimation: "shoppingBag", type: "json", nameApp: NSLocalizedString("appName", comment: ""))
         viewController?.displayInitialInformation(viewModel: viewModel)
     }
 }

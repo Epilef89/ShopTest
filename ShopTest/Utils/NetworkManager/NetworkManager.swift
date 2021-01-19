@@ -41,13 +41,13 @@ struct NetworkManager {
         
         switch api.self {
         case  .searchByTerms:
-            guard let loginModelCodable = try? decoder.decode(SearchResults.self, from: data) else {
+            guard let searchResultsCodable = try? decoder.decode(SearchResults.self, from: data) else {
                 completion(response,
                            Result<Any>.failure(CustomErrors.errorGeneralResponse))
                 return
             }
             
-            completion(response, Result<Any>.success(loginModelCodable))
+            completion(response, Result<Any>.success(searchResultsCodable))
             
         case .none:
             break

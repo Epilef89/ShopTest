@@ -35,8 +35,8 @@ class ReultTableViewCell: UITableViewCell {
     
     func setWith(result:ResultSearch){
         self.nameProductLabel.text = result.title
-        self.productCostLabel.text = String(result.price ?? 0)
-        self.productConditionLabel.text = result.condition
+        self.productCostLabel.text = result.priceDisplaypriceDisplay
+        self.productConditionLabel.text = result.conditionDisplay
         let loaderImage = UIImage(named: "productDefaultImage")
         guard let url = URL(string: result.thumbnail ?? "") else{
             self.productImageView.image = loaderImage

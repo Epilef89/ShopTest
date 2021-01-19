@@ -27,6 +27,12 @@ struct ResultSearch: Codable {
     let catalogProductID: String?
     let tags: [String]?
     let catalogListing: Bool?
+    var priceDisplaypriceDisplay:String{
+        return "$\(String(price ?? 0).getFormatNumber(withDecimal: true, separator: ".", decimalSeparator: ",")) (\(currencyID?.lowercased() ?? ""))"
+    }
+    var conditionDisplay:String{
+        return NSLocalizedString(condition ?? "", comment: "")
+    }
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -77,6 +83,5 @@ struct ResultSearch: Codable {
         catalogProductID =  try resultsValues.decodeIfPresent(String.self, forKey: .catalogProductID)
         tags =  try resultsValues.decodeIfPresent([String].self, forKey: .tags)
         catalogListing =  try resultsValues.decodeIfPresent(Bool.self, forKey: .catalogListing)
-        
     }
 }
