@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum NavigationBarType {
+    case main
+    case back
+    case none
+}
+
 class BaseViewController: UIViewController {
     
     var loaderView = UIView()
@@ -14,7 +20,7 @@ class BaseViewController: UIViewController {
     var backgroundNavigationBar = UIView()
     var backButtonNavigationBar = UIButton(type: .custom)
     var titleLabelNavigationBar = NavigationBarTitleLabel()
-    
+    var navigationType:NavigationBarType = .none
     
     override func viewDidLoad() {
         setUpUI()
@@ -33,8 +39,6 @@ class BaseViewController: UIViewController {
     }
     
     func setUpUI() {
-        navigationBar.isHidden = true
-        backgroundNavigationBar.isHidden = true
         self.view.backgroundColor = UIColor.grayMainColor
         navigationBar.backgroundColor = UIColor.yellowMainColor
         backgroundNavigationBar.backgroundColor = UIColor.yellowMainColor
@@ -43,14 +47,12 @@ class BaseViewController: UIViewController {
         navigationBar.addSubview(backButtonNavigationBar)
         navigationBar.addSubview(titleLabelNavigationBar)
         backButtonNavigationBar.setImage(UIImage(named: "backButton"), for: .normal)
-        backButtonNavigationBar.setImage(UIImage(named: "backButton"), for: .normal)
         backButtonNavigationBar.imageView?.contentMode = .scaleAspectFit
         backButtonNavigationBar.imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
         backButtonNavigationBar.addTarget(self, action: #selector(actionBack), for: .touchUpInside)
         backButtonNavigationBar.titleLabel?.font = UIFont.getFont(.regular, size: 16)
         backButtonNavigationBar.setTitleColor(.black, for: .normal)
         titleLabelNavigationBar.textAlignment = .center
-        titleLabelNavigationBar.text = "Shopping"
         setUpConstraints()
     }
     
@@ -189,6 +191,25 @@ class BaseViewController: UIViewController {
                 UIViewController.removeSpinner(spinner: self.loaderView)
             }
         }
+    }
+    
+    func setEnableNavigationbar(type: NavigationBarType) {
+        self.navigationType = type
+        switch type {
+        case .back:
+            backgroundNavigationBar.isHidden = false
+            backButtonNavigationBar.isHidden = false
+            navigationBar.isHidden = false
+        case .main:
+            backgroundNavigationBar.isHidden = false
+            backButtonNavigationBar.isHidden = true
+            navigationBar.isHidden = false
+        case .none:
+            backgroundNavigationBar.isHidden = true
+            backButtonNavigationBar.isHidden = true
+            navigationBar.isHidden = true
+        }
+        
     }
     
     @objc func actionBack() {

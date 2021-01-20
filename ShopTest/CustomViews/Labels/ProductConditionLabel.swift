@@ -28,6 +28,8 @@ private extension ProductConditionLabel {
         textColor = UIColor.white
         backgroundColor = UIColor.blueMainColor
         layer.masksToBounds = true
+        layer.cornerRadius = 8
+        textAlignment = .center
         font = UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.getFont(.regular, size: 14))
         numberOfLines = 0
     }

@@ -45,6 +45,7 @@ class SearchInteractorTests: XCTestCase{
         var presentShowResultsCalled = false
         var presentMoreResultsCalled = false
         var presentErrorCalled = false
+        var presentGoToDetailCalled = false
         
         func presentInitialInformation(response: Search.LoadInitalData.Response) {
             presentInitialInformationCalled = true
@@ -61,12 +62,15 @@ class SearchInteractorTests: XCTestCase{
         func presentError(response: Search.ShowError.Response) {
             presentErrorCalled = true
         }
+        func presentGoToDetail(response:Search.GoToDetail.Response){
+            presentGoToDetailCalled = true
+        }
     }
     
     class SearchWorkerSpy:SearchWorker{
         var fetchResultsCalled = false
         var customError:NSError?
-        override func fetchResultsBy(_ term: String, country: String, offset: Int, completionHandler: @escaping (HTTPURLResponse, Result<SearchResults>) -> Void) {
+        override func fetchResultsBy(_ term: String, country: String, offset: Int, limit:Int, completionHandler: @escaping (HTTPURLResponse, Result<SearchResults>) -> Void) {
             fetchResultsCalled = true
             if customError == nil{
                 completionHandler(HTTPURLResponse(), Result<SearchResults>.success(Seeds.items.searchResult!))

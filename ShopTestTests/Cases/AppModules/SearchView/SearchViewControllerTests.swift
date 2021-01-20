@@ -44,13 +44,13 @@ class SearchViewControllerTests: XCTestCase{
     func givenInitialViewModelMock()->Search.SearchByTerm.ViewModel{
         
         let searchResultsCodable = getSearchResults()
-        return Search.SearchByTerm.ViewModel(resultSearch: searchResultsCodable?.results ?? [], totalResultsCount: String(searchResultsCodable?.results?.count ?? 0))
+        return Search.SearchByTerm.ViewModel(resultSearch: searchResultsCodable?.results ?? [], totalResultsCount: String(searchResultsCodable?.results?.count ?? 0), moreResults: true)
         
     }
     
     func givenMoreResultsViewModelMock()->Search.GetMoreResults.ViewModel{
         let searchResultsCodable = getSearchResults()
-        return Search.GetMoreResults.ViewModel(resultSearch: searchResultsCodable?.results ?? [], totalResultsCount: String(searchResultsCodable?.results?.count ?? 0))
+        return Search.GetMoreResults.ViewModel(resultSearch: searchResultsCodable?.results ?? [], totalResultsCount: String(searchResultsCodable?.results?.count ?? 0), moreResults: true)
     }
     
     func givenErrorGeneralResponseViewModel()->Search.ShowError.ViewModel{
@@ -90,6 +90,7 @@ class SearchViewControllerTests: XCTestCase{
         var loadInitialInformationCalled = false
         var searchByTermCalled = false
         var getMoreItemsByPreviousTermCalled = false
+        var goToDetailCalled = false
         
         func loadInitialInformation(request: Search.LoadInitalData.Request){
             loadInitialInformationCalled = true
@@ -101,6 +102,10 @@ class SearchViewControllerTests: XCTestCase{
         
         func getMoreItemsByPreviousTerm(request: Search.GetMoreResults.Request) {
             getMoreItemsByPreviousTermCalled = true
+        }
+        
+        func goToDetail(request:Search.GoToDetail.Request){
+            goToDetailCalled = true
         }
     }
     

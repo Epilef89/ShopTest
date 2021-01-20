@@ -22,6 +22,14 @@
 "searchView.initialMessage" = "We will search our inventory to offer you the best products.";
 "searchView.quantityResultsMessage" = "showing $0 results for \"$1\"";
 
+////******************DETAIL VIEW*******************************
+"detailView.AvailabeProducts.label" = "Available";
+"detailView.SoldProductos.label" = "Sold";
+"detailView.FreeShipping.label" = "Free shipping";
+"detailView.description.Title" = "Description";
+"detailView.Cost.Title" = "Cost";
+"detailView.Brand.Title" = "Brand";
+"detailView.City.Title" = "City";
 
 ////******************ERROR MESSAGES****************************
 "errorMessage.GeneralResponse" = "We were unable to process your request";

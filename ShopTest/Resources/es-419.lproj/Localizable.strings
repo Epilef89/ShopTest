@@ -23,6 +23,15 @@
 "searchView.initialMessage" = "Buscaremos en nuestro inventario para ofrecerte los mejores productos.";
 "searchView.quantityResultsMessage" = "mostrando $0 resultados para \"$1\"";
 
+////******************DETAIL VIEW*******************************
+"detailView.AvailabeProducts.label" = "Disponibles";
+"detailView.SoldProductos.label" = "Vendidos";
+"detailView.FreeShipping.label" = "Envio gratis";
+"detailView.description.Title" = "Descripción";
+"detailView.Cost.Title" = "Costo";
+"detailView.Brand.Title" = "Marca";
+"detailView.City.Title" = "Ciudad";
+
 ////******************ERROR MESSAGES****************************
 "errorMessage.GeneralResponse" = "No pudimos procesar tu solicitud";
 "errorMessage.NoData" = "Sin resultados para mostrar, cambia los criterios de tu búsqueda.";

@@ -33,6 +33,19 @@ struct ResultSearch: Codable {
     var conditionDisplay:String{
         return NSLocalizedString(condition ?? "", comment: "")
     }
+    var availableProductsDisplay:String{
+        return " \(NSLocalizedString("detailView.AvailabeProducts.label", comment: "")) | \(availableQuantity ?? 0)"
+    }
+    
+    var soldQuantityProductDisplay:String{
+        return " \(NSLocalizedString("detailView.SoldProductos.label", comment: "")) | \(soldQuantity ?? 0)"
+    }
+    var typeShipping:String{
+        guard let shipping = shipping else{
+            return ""
+        }
+        return (shipping.freeShipping ?? false ? NSLocalizedString("detailView.FreeShipping.label", comment: "") : "")
+    }
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -83,5 +96,34 @@ struct ResultSearch: Codable {
         catalogProductID =  try resultsValues.decodeIfPresent(String.self, forKey: .catalogProductID)
         tags =  try resultsValues.decodeIfPresent([String].self, forKey: .tags)
         catalogListing =  try resultsValues.decodeIfPresent(Bool.self, forKey: .catalogListing)
+        
+    }
+    
+    public init(){
+        id = nil
+        siteID = nil
+        title = nil
+        seller = nil
+        price = nil
+        currencyID = nil
+        availableQuantity = nil
+        soldQuantity = nil
+        buyingMode = nil
+        listingTypeID = nil
+        stopTime = nil
+        condition = nil
+        permalink = nil
+        thumbnail = nil
+        acceptsMercadopago = nil
+        installments = nil
+        address = nil
+        shipping = nil
+        sellerAddress = nil
+        attributes = nil
+        categoryID = nil
+        officialStoreID = nil
+        catalogProductID = nil
+        tags = nil
+        catalogListing = nil
     }
 }

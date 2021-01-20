@@ -44,11 +44,12 @@ class SearchWorkerTests: XCTestCase
         let term = "iphone"
         let country = "MCO"
         let offset = 0
+        let limit = 40
         let exp = expectation(description: "Success")
         var statusCode:Int?
         var searchResult:Result<SearchResults>?
         //When
-        sut.fetchResultsBy(term, country: country, offset: offset) { (response, result) in
+        sut.fetchResultsBy(term, country: country, offset: offset, limit: limit) { (response, result) in
             searchResult = result
             statusCode = response.statusCode
             exp.fulfill()
@@ -62,13 +63,14 @@ class SearchWorkerTests: XCTestCase
     func testSearchWorker_FetchResults_WhenCountryDontExist(){
         let term = "iphone"
         let country = "M"
+        let limit = 40
         let offset = 0
         let exp = expectation(description: "Success")
         var statusCode:Int?
         var customError:NSError?
         var searchResult:Result<SearchResults>?
         //When
-        sut.fetchResultsBy(term, country: country, offset: offset) { (response, result) in
+        sut.fetchResultsBy(term, country: country, offset: offset, limit: limit) { (response, result) in
             searchResult = result
             statusCode = response.statusCode
             switch result{
@@ -91,12 +93,13 @@ class SearchWorkerTests: XCTestCase
     func testSearchWorker_FetchResults_WhenOutOfRange(){
         let term = "iPhone"
         let country = "MCO"
+        let limit = 40
         let offset = 1010
         let exp = expectation(description: "Failure")
         var statusCode:Int?
         var customError:NSError?
         //When
-        sut.fetchResultsBy(term, country: country, offset: offset) { (response, result) in
+        sut.fetchResultsBy(term, country: country, offset: offset, limit: limit) { (response, result) in
             statusCode = response.statusCode
             switch result{
             case .failure(let error):

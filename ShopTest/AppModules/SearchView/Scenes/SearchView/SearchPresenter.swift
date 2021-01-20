@@ -12,6 +12,7 @@ protocol SearchPresentationLogic {
     func presentShowResults(response:Search.SearchByTerm.Response)
     func presentMoreResults(response:Search.GetMoreResults.Response)
     func presentError(response:Search.ShowError.Response)
+    func presentGoToDetail(response:Search.GoToDetail.Response)
 }
 
 class SearchPresenter: SearchPresentationLogic {
@@ -30,17 +31,21 @@ class SearchPresenter: SearchPresentationLogic {
         let totlaResultsCount = NSLocalizedString("searchView.quantityResultsMessage", comment: "")
             .replacingOccurrences(of: "$0", with: String(response.totalResultsCount))
             .replacingOccurrences(of: "$1", with: response.term)
-        let viewModel = Search.SearchByTerm.ViewModel(resultSearch: response.resultSearch, totalResultsCount: totlaResultsCount)
+        let viewModel = Search.SearchByTerm.ViewModel(resultSearch: response.resultSearch, totalResultsCount: totlaResultsCount, moreResults: response.moreResults)
         viewController?.displaySearchResults(viewModel: viewModel)
     }
     
     func presentMoreResults(response: Search.GetMoreResults.Response) {
-        let viewModel = Search.GetMoreResults.ViewModel(resultSearch: response.resultSearch, totalResultsCount: String(response.totalResultsCount))
+        let viewModel = Search.GetMoreResults.ViewModel(resultSearch: response.resultSearch, totalResultsCount: String(response.totalResultsCount), moreResults: response.moreResults)
         viewController?.displayMoreItems(viewModel: viewModel)
     }
     func presentError(response:Search.ShowError.Response){
         let viewModel = Search.ShowError.ViewModel(errorMessage: response.errorMessage.getErrorMessage(), retry: response.retry, titlePrimaryButton: NSLocalizedString("aceptButton", comment: ""), titleSecundaryButton:  NSLocalizedString("retryButton", comment: ""))
         viewController?.displayMessageError(viewmodel: viewModel)
+    }
+    func presentGoToDetail(response:Search.GoToDetail.Response){
+        let viewModel = Search.GoToDetail.ViewModel()
+        viewController?.displayGoToDetail(viewModel: viewModel)
     }
 }
 
