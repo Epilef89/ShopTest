@@ -53,7 +53,7 @@ class SearchPresenterTests: XCTestCase{
         var displayMoreItemsCalled = false
         var displayMessageErrorCalled = false
         var totalResultsTitle = ""
-        
+        var displayGoToDetailCalled = false
         
         func displayInitialInformation(viewModel: Search.LoadInitalData.ViewModel) {
             
@@ -71,6 +71,9 @@ class SearchPresenterTests: XCTestCase{
         
         func displayMessageError(viewmodel: Search.ShowError.ViewModel) {
             displayMessageErrorCalled = true
+        }
+        func displayGoToDetail(viewModel:Search.GoToDetail.ViewModel){
+            displayGoToDetailCalled = true
         }
         
     }
@@ -92,7 +95,7 @@ class SearchPresenterTests: XCTestCase{
     func testSearchPresenter_WhenPresentSearchResults(){
         //Given
         let results = getSearchResults()
-        let searchByTermResponse = Search.SearchByTerm.Response(resultSearch: results, totalResultsCount: results.count, term: "")
+        let searchByTermResponse = Search.SearchByTerm.Response(resultSearch: results, totalResultsCount: results.count, term: "", moreResults: true)
         
         //When
         sut.presentShowResults(response: searchByTermResponse)
@@ -106,7 +109,7 @@ class SearchPresenterTests: XCTestCase{
     
     func testSearchPresenter_WhenPresentMoreItems(){
         //Given
-        let moreResultsResponse = Search.GetMoreResults.Response(resultSearch: [], totalResultsCount: 0)
+        let moreResultsResponse = Search.GetMoreResults.Response(resultSearch: [], totalResultsCount: 0, moreResults: true)
         
         //When
         sut.presentMoreResults(response: moreResultsResponse)

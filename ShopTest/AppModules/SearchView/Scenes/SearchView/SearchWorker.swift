@@ -9,9 +9,9 @@ import UIKit
 
 class SearchWorker {
     
-    func fetchResultsBy(_ term:String, country:String,offset:Int, completionHandler: @escaping (HTTPURLResponse, Result<SearchResults>) -> Void) {
+    func fetchResultsBy(_ term:String, country:String,offset:Int,limit:Int, completionHandler: @escaping (HTTPURLResponse, Result<SearchResults>) -> Void) {
     NetworkManager.requestBasicWithURLConvertible(uRLRequestConvertible:
-                                                    APIRouter.searchByTerms(term: term, country:country, offset: String(offset))) { (response, result) in
+                                                    APIRouter.searchByTerms(term: term, country:country, offset: String(offset), limit: limit)) { (response, result) in
         
         switch result {
         case .success(let rearchResults):

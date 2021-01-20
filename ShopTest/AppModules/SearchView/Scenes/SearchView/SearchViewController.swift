@@ -12,6 +12,7 @@ protocol SearchDisplayLogic: class {
     func displaySearchResults(viewModel:Search.SearchByTerm.ViewModel)
     func displayMoreItems(viewModel:Search.GetMoreResults.ViewModel)
     func displayMessageError(viewmodel:Search.ShowError.ViewModel)
+    func displayGoToDetail(viewModel:Search.GoToDetail.ViewModel)
 }
 
 class SearchViewController: BaseViewController, SearchDisplayLogic {
@@ -89,6 +90,7 @@ class SearchViewController: BaseViewController, SearchDisplayLogic {
         loadInitialInformation()
         setSearchBar()
         setUPTableView()
+        setEnableNavigationbar(type: .main)
         
     }
     
@@ -112,12 +114,17 @@ class SearchViewController: BaseViewController, SearchDisplayLogic {
     }
     
     func searchMoreItems(retry:Bool = false){
-        if !(router?.dataStore?.wattingService ?? false){
+        if !(router?.dataStore?.wattingService ?? false) && (searchByTems?.moreResults ?? false){
             let request = Search.GetMoreResults.Request(retry: retry)
             interactor?.getMoreItemsByPreviousTerm(request: request)
             self.showLoader(show: true)
         }
         
+    }
+    
+    func goToDetailItem(item:ResultSearch){
+        let request = Search.GoToDetail.Request(resultSearch: item)
+        interactor?.goToDetail(request: request)
     }
     
     // MARK: Display
@@ -160,6 +167,12 @@ class SearchViewController: BaseViewController, SearchDisplayLogic {
         }
         
         
+    }
+    
+    func displayGoToDetail(viewModel:Search.GoToDetail.ViewModel){
+        self.searchController.isActive = false
+        self.navigationBar.isHidden = false
+        self.router?.routeToDetailItem()
     }
     
     // MARK: Functions
@@ -245,6 +258,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let item = searchByTems?.resultSearch[indexPath.row] else{
+            return
+        }
+        self.goToDetailItem(item: item)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

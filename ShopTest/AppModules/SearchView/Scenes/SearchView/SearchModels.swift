@@ -30,10 +30,12 @@ enum Search {
             var resultSearch:[ResultSearch]
             var totalResultsCount:Int
             var term:String
+            var moreResults:Bool
         }
         struct ViewModel{
             var resultSearch:[ResultSearch]
             var totalResultsCount:String
+            var moreResults:Bool
         }
     }
     
@@ -44,10 +46,12 @@ enum Search {
         struct Response {
             var resultSearch:[ResultSearch]
             var totalResultsCount:Int
+            var moreResults:Bool
         }
         struct ViewModel{
             var resultSearch:[ResultSearch]
             var totalResultsCount:String
+            var moreResults:Bool
         }
     }
     
@@ -63,6 +67,16 @@ enum Search {
             var retry:Bool
             var titlePrimaryButton:String
             var titleSecundaryButton:String
+        }
+    }
+    
+    enum GoToDetail{
+        struct Request {
+            var resultSearch:ResultSearch
+        }
+        struct Response{
+        }
+        struct ViewModel{
         }
     }
 }

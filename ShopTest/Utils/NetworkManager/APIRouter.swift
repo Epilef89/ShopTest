@@ -10,7 +10,7 @@ import UIKit
 
 enum APIRouter: URLRequestConvertible {
     
-    case searchByTerms(term:String, country:String, offset:String)
+    case searchByTerms(term:String, country:String, offset:String, limit:Int)
     
     
     // MARK: - HTTPMethod
@@ -24,7 +24,7 @@ enum APIRouter: URLRequestConvertible {
     // MARK: - Path
     private var path: String {
         switch self {
-        case .searchByTerms(_ , let country, _):
+        case .searchByTerms(_ , let country, _, _):
             return URLK.searchByTerm.rawValue.replacingOccurrences(of: "$SITE_ID", with: country)
         }
     }
@@ -32,8 +32,8 @@ enum APIRouter: URLRequestConvertible {
     // MARK: - Parameters
     private var parameters: Parameters? {
         switch self {
-        case .searchByTerms(let term, _, let offset):
-            return ["q":term,"offset":offset,"limit":"40"]
+        case .searchByTerms(let term, _, let offset, let limit):
+            return ["q":term,"offset":offset,"limit":String(limit)]
         }
     }
     

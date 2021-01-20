@@ -33,12 +33,13 @@ class APIMeliTest: XCTestCase {
         let term = "iphone"
         let country = "MCO"
         let offset = 0
+        let limit = 40
         let exp = expectation(description: "Success")
         var statusCode:Int?
         
         
         //When
-        sutMock.searchBy(term: term, country: country, offset: offset) { (response, result) in
+        sutMock.searchBy(term: term, country: country, offset: offset, limit: limit) { (response, result) in
             statusCode = response.statusCode
             exp.fulfill()
         }
@@ -51,12 +52,13 @@ class APIMeliTest: XCTestCase {
         let term = "iphone"
         let country = "M"
         let offset = 0
+        let limit = 40
         let exp = expectation(description: "Failure")
         var statusCode:Int?
         var customError:NSError?
         var searchResultt:Result<SearchResults>?
         //When
-        sutMock.searchBy(term: term, country: country, offset: offset) { (response, result) in
+        sutMock.searchBy(term: term, country: country, offset: offset, limit: limit) { (response, result) in
             statusCode = response.statusCode
             searchResultt = result
             switch result{
@@ -64,7 +66,6 @@ class APIMeliTest: XCTestCase {
                 customError = error
                 exp.fulfill()
             case .success(let results):
-                print("OK???")
                 exp.fulfill()
             }
         }

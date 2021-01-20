@@ -11,19 +11,22 @@ protocol SearchBusinessLogic {
     func loadInitialInformation(request: Search.LoadInitalData.Request)
     func searchByTerm(request:Search.SearchByTerm.Request)
     func getMoreItemsByPreviousTerm(request:Search.GetMoreResults.Request)
+    func goToDetail(request:Search.GoToDetail.Request)
 }
 
 protocol SearchDataStore {
     var wattingService:Bool {get set}
+    var resultSearch:ResultSearch {get set}
 }
 
 class SearchInteractor: SearchBusinessLogic, SearchDataStore {
     var presenter: SearchPresentationLogic?
-    var worker: SearchWorker = SearchWorker()
+    lazy var worker: SearchWorker = SearchWorker()
     var offset: Int = 0
     var term:String = ""
     var wattingService:Bool = false
-
+    var resultSearch: ResultSearch = ResultSearch()
+    var limit:Int = 40
     
     func loadInitialInformation(request: Search.LoadInitalData.Request) {
         
@@ -39,7 +42,7 @@ class SearchInteractor: SearchBusinessLogic, SearchDataStore {
         offset = 0
         term = request.term
         wattingService = true
-        worker.fetchResultsBy(request.term, country: country, offset: offset) { (response, result) in
+        worker.fetchResultsBy(request.term, country: country, offset: offset, limit: limit) { (response, result) in
             self.wattingService = false
             switch result {
             case .success:
@@ -48,7 +51,7 @@ class SearchInteractor: SearchBusinessLogic, SearchDataStore {
                 }
                 let quantity = result.value?.paging?.total ?? 0
                 if results.count > 0{
-                    let response = Search.SearchByTerm.Response(resultSearch: results, totalResultsCount: quantity, term: request.term)
+                    let response = Search.SearchByTerm.Response(resultSearch: results, totalResultsCount: quantity, term: request.term, moreResults: (results.count == self.limit))
                     self.presenter?.presentShowResults(response: response)
                 }else{
                     let response = Search.ShowError.Response(errorMessage: CustomErrors.errorNoData, retry: false)
@@ -66,7 +69,7 @@ class SearchInteractor: SearchBusinessLogic, SearchDataStore {
         let country = KeyManager().getCountry() ?? ""
         offset += 1
         wattingService = true
-        worker.fetchResultsBy(term,country: country, offset:offset) { (response, result) in
+        worker.fetchResultsBy(term,country: country, offset:offset, limit: limit) { (response, result) in
             self.wattingService = false
             switch result {
             case .success:
@@ -75,7 +78,7 @@ class SearchInteractor: SearchBusinessLogic, SearchDataStore {
                 }
                 let quantity = result.value?.paging?.total ?? 0
                 if results.count > 0{
-                    let response = Search.GetMoreResults.Response(resultSearch: results, totalResultsCount: quantity)
+                    let response = Search.GetMoreResults.Response(resultSearch: results, totalResultsCount: quantity, moreResults: (results.count == self.limit))
                     self.presenter?.presentMoreResults(response: response)
                 }else{
                     let response = Search.ShowError.Response(errorMessage: CustomErrors.errorNoData, retry: false)
@@ -87,6 +90,12 @@ class SearchInteractor: SearchBusinessLogic, SearchDataStore {
             }
         }
 
+    }
+    
+    func goToDetail(request:Search.GoToDetail.Request){
+        resultSearch = request.resultSearch
+        let response = Search.GoToDetail.Response()
+        self.presenter?.presentGoToDetail(response: response)
     }
 }
 

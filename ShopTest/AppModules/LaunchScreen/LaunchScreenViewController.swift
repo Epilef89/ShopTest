@@ -54,6 +54,7 @@ class LaunchScreenViewController: BaseViewController, LaunchScreenDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadInitialInformation()
+        self.setEnableNavigationbar(type: .none)
     }
     
     // MARK: Use case

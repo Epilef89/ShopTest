@@ -10,9 +10,9 @@ import UIKit
 
 class APIMeli{
     
-    static func searchBy(term:String,country:String,offset:Int, completion:@escaping(HTTPURLResponse,Result<SearchResults>)->Void){
+    static func searchBy(term:String,country:String,offset:Int, limit:Int, completion:@escaping(HTTPURLResponse,Result<SearchResults>)->Void){
         
-        let request = APIRouter.searchByTerms(term:term, country:country, offset:String(offset)).asURLRequest()
+        let request = APIRouter.searchByTerms(term:term, country:country, offset:String(offset), limit: limit).asURLRequest()
         let log = Log(from: request, service:"Search by Term \(term)")
         URLSession.shared.dataTask(with:request) { data, response, error in
             

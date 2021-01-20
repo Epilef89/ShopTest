@@ -26,4 +26,12 @@ extension UIColor {
     @nonobjc class var transparentBackgroundAlert: UIColor {
         return UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0, alpha: 0.5)
     }
+    
+    @nonobjc class var greenFreeShipping: UIColor {
+        return UIColor(red: 113 / 255.0, green: 228 / 255.0, blue: 119/255, alpha: 0.5)
+    }
+    
+    @nonobjc class var grayDark: UIColor {
+        return UIColor(red: 180 / 255.0, green: 180 / 255.0, blue: 180 / 255.0, alpha: 1.0)
+    }
 }
