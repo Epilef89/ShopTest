@@ -176,8 +176,15 @@ class SearchInteractorTests: XCTestCase{
         let request = Search.GetMoreResults.Request(retry: false)
         let spyWorker = SearchWorkerSpy()
         sut.worker = spyWorker
+        spyWorker.customError = CustomErrors.errorGeneralResponse
         let searchPresentationLogicSpy = SearchPresentationLogicSpy()
         sut.presenter = searchPresentationLogicSpy
+        
+        //When
+        sut.getMoreItemsByPreviousTerm(request: request)
+        
+        //Then
+        XCTAssertTrue(searchPresentationLogicSpy.presentErrorCalled, "getMoreItemsByPreviousTerm(request:) when fail shoud ask to presenter to show error.")
 
     }
     

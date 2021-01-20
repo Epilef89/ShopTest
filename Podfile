@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '12.0'
 
 target 'ShopTest' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,12 +7,12 @@ target 'ShopTest' do
 
   # Pods for ShopTest
 
-pod 'Firebase/Performance'
-pod 'Firebase/Crashlytics'
-pod 'Firebase/Analytics'
-pod 'SwiftKeychainWrapper'
-pod 'lottie-ios'
-pod 'SDWebImage'
+  pod 'Firebase/Performance'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Analytics'
+  pod 'SwiftKeychainWrapper'
+  pod 'lottie-ios'
+  pod 'SDWebImage'
 
   target 'ShopTestTests' do
     inherit! :search_paths

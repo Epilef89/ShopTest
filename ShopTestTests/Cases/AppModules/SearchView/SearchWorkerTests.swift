@@ -9,29 +9,26 @@
 @testable import ShopTest
 import XCTest
 
-class SearchWorkerTests: XCTestCase
-{
+class SearchWorkerTests: XCTestCase{
     // MARK: Subject under test
     
     var sut: SearchWorker!
     
     // MARK: Test lifecycle
     
-    override func setUp()
-    {
+    override func setUp(){
         super.setUp()
         setupSearchWorker()
     }
     
-    override func tearDown()
-    {
+    override func tearDown(){
+        sut = nil
         super.tearDown()
     }
     
     // MARK: Test setup
     
-    func setupSearchWorker()
-    {
+    func setupSearchWorker(){
         sut = SearchWorker()
     }
     
