@@ -65,7 +65,7 @@ class APIMeliTest: XCTestCase {
             case .failure(let error):
                 customError = error
                 exp.fulfill()
-            case .success(let results):
+            case .success( _):
                 exp.fulfill()
             }
         }

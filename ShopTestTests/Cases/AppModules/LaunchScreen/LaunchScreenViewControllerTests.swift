@@ -27,6 +27,7 @@ class LaunchScreenViewControllerTests: XCTestCase{
     override func tearDown(){
         window = nil
         viewModel = nil
+        sut = nil
         super.tearDown()
     }
     

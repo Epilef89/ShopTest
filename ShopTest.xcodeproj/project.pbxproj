@@ -51,6 +51,7 @@
 		B79ABC6925B7B41900BCD22A /* DetailItemInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79ABC6525B7B41900BCD22A /* DetailItemInteractorTests.swift */; };
 		B79ABC6A25B7B41900BCD22A /* DetailItemWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79ABC6625B7B41900BCD22A /* DetailItemWorkerTests.swift */; };
 		B79ABC6B25B7B41900BCD22A /* DetailItemPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79ABC6725B7B41900BCD22A /* DetailItemPresenterTests.swift */; };
+		B79ABFE825B7DD1800BCD22A /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79ABFE725B7DD1800BCD22A /* AlertView.swift */; };
 		B7B2004825B6A36C00B58FC0 /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B2004725B6A36C00B58FC0 /* Seeds.swift */; };
 		B7B2004E25B7396A00B58FC0 /* APIMeliTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B2004D25B7396A00B58FC0 /* APIMeliTest.swift */; };
 		B7BC629325B24D26004624EA /* ShopTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC629225B24D26004624EA /* ShopTestTests.swift */; };
@@ -66,7 +67,6 @@
 		B7BC63A125B26C84004624EA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7BC63A325B26C84004624EA /* Localizable.strings */; };
 		B7BC63CC25B27FB5004624EA /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC63CB25B27FB5004624EA /* KeyboardLayoutConstraint.swift */; };
 		B7BC63D225B28164004624EA /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC63D125B28164004624EA /* Reachability.swift */; };
-		B7BC63D825B282B1004624EA /* GeoLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC63D725B282B1004624EA /* GeoLocationManager.swift */; };
 		B7BC640525B28870004624EA /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC640425B28870004624EA /* KeyManager.swift */; };
 		B7BC640A25B28B8E004624EA /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC640925B28B8E004624EA /* UIColorExtension.swift */; };
 		B7BC640F25B294AC004624EA /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BC640E25B294AC004624EA /* UIFontExtension.swift */; };
@@ -77,7 +77,6 @@
 		B7E2BD8225B2CB6900733803 /* ShopTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2BD8125B2CB6900733803 /* ShopTestUITests.swift */; };
 		B7E2BDBC25B3509100733803 /* KeychainWrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2BDBB25B3509100733803 /* KeychainWrapperTest.swift */; };
 		B7E2BDCA25B3616800733803 /* ReachabilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2BDC925B3616800733803 /* ReachabilityTest.swift */; };
-		B7E2BDDC25B3699900733803 /* GeoLocationManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2BDDB25B3699900733803 /* GeoLocationManagerTest.swift */; };
 		B7E2BDFA25B3706100733803 /* LaunchScreenViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2BDF625B3706100733803 /* LaunchScreenViewControllerTests.swift */; };
 		B7E2BDFB25B3706100733803 /* LaunchScreenInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2BDF725B3706100733803 /* LaunchScreenInteractorTests.swift */; };
 		B7E2BDFC25B3706100733803 /* LaunchScreenWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2BDF825B3706100733803 /* LaunchScreenWorkerTests.swift */; };
@@ -196,6 +195,7 @@
 		B79ABC6525B7B41900BCD22A /* DetailItemInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemInteractorTests.swift; sourceTree = "<group>"; };
 		B79ABC6625B7B41900BCD22A /* DetailItemWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemWorkerTests.swift; sourceTree = "<group>"; };
 		B79ABC6725B7B41900BCD22A /* DetailItemPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemPresenterTests.swift; sourceTree = "<group>"; };
+		B79ABFE725B7DD1800BCD22A /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		B7B2004725B6A36C00B58FC0 /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
 		B7B2004D25B7396A00B58FC0 /* APIMeliTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMeliTest.swift; sourceTree = "<group>"; };
 		B7BC629025B24D26004624EA /* ShopTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,7 +214,6 @@
 		B7BC63A825B26C9D004624EA /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		B7BC63CB25B27FB5004624EA /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		B7BC63D125B28164004624EA /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		B7BC63D725B282B1004624EA /* GeoLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationManager.swift; sourceTree = "<group>"; };
 		B7BC640425B28870004624EA /* KeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
 		B7BC640925B28B8E004624EA /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		B7BC640E25B294AC004624EA /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
@@ -226,7 +225,6 @@
 		B7E2BD8125B2CB6900733803 /* ShopTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTestUITests.swift; sourceTree = "<group>"; };
 		B7E2BDBB25B3509100733803 /* KeychainWrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapperTest.swift; sourceTree = "<group>"; };
 		B7E2BDC925B3616800733803 /* ReachabilityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityTest.swift; sourceTree = "<group>"; };
-		B7E2BDDB25B3699900733803 /* GeoLocationManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationManagerTest.swift; sourceTree = "<group>"; };
 		B7E2BDF625B3706100733803 /* LaunchScreenViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewControllerTests.swift; sourceTree = "<group>"; };
 		B7E2BDF725B3706100733803 /* LaunchScreenInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenInteractorTests.swift; sourceTree = "<group>"; };
 		B7E2BDF825B3706100733803 /* LaunchScreenWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenWorkerTests.swift; sourceTree = "<group>"; };
@@ -475,6 +473,14 @@
 			path = DetailView;
 			sourceTree = "<group>";
 		};
+		B79ABFE625B7DD0400BCD22A /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				B79ABFE725B7DD1800BCD22A /* AlertView.swift */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
 		B7B2004C25B7395200B58FC0 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,7 +539,6 @@
 				B7E2C07725B4DB0600733803 /* NetworkManager */,
 				B7E2C01825B4BDF800733803 /* Log */,
 				B7BC63F625B285EB004624EA /* KeychainWrapper */,
-				B7BC63D625B282A4004624EA /* GeoLocationManager */,
 				B7BC63D025B2814B004624EA /* Reachability */,
 				B7BC63CA25B27F93004624EA /* Constraints */,
 				B7BC62D625B25604004624EA /* Extensions */,
@@ -570,14 +575,6 @@
 				B7BC63D125B28164004624EA /* Reachability.swift */,
 			);
 			path = Reachability;
-			sourceTree = "<group>";
-		};
-		B7BC63D625B282A4004624EA /* GeoLocationManager */ = {
-			isa = PBXGroup;
-			children = (
-				B7BC63D725B282B1004624EA /* GeoLocationManager.swift */,
-			);
-			path = GeoLocationManager;
 			sourceTree = "<group>";
 		};
 		B7BC63F625B285EB004624EA /* KeychainWrapper */ = {
@@ -637,7 +634,6 @@
 			isa = PBXGroup;
 			children = (
 				B7B2004C25B7395200B58FC0 /* NetworkManager */,
-				B7E2BDDA25B3698B00733803 /* GeoLocationManager */,
 				B7E2BDCE25B3663A00733803 /* Constraints */,
 				B7E2BDC525B360A600733803 /* Reachability */,
 				B7E2BDBA25B3506700733803 /* KeychainWrapper */,
@@ -669,17 +665,10 @@
 			name = Constraints;
 			sourceTree = "<group>";
 		};
-		B7E2BDDA25B3698B00733803 /* GeoLocationManager */ = {
-			isa = PBXGroup;
-			children = (
-				B7E2BDDB25B3699900733803 /* GeoLocationManagerTest.swift */,
-			);
-			path = GeoLocationManager;
-			sourceTree = "<group>";
-		};
 		B7E2BDE325B36FC800733803 /* AppModules */ = {
 			isa = PBXGroup;
 			children = (
+				B79ABFE625B7DD0400BCD22A /* AlertView */,
 				B79ABC5225B7B3A900BCD22A /* DetailView */,
 				B7E2BE9725B3A10A00733803 /* SearchView */,
 				B7E2BDE425B36FD200733803 /* LaunchScreen */,
@@ -834,7 +823,7 @@
 				B792026E25B217A400C5D3B8 /* Sources */,
 				B792026F25B217A400C5D3B8 /* Frameworks */,
 				B792027025B217A400C5D3B8 /* Resources */,
-				0AA5FB9176AC98BE1479CC5A /* [CP] Embed Pods Frameworks */,
+				DEC3157830297BCCDF3D75AF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -853,7 +842,7 @@
 				B792029225B217A700C5D3B8 /* Sources */,
 				B792029325B217A700C5D3B8 /* Frameworks */,
 				B792029425B217A700C5D3B8 /* Resources */,
-				B48B58A9F4D5DF2B06D68010 /* [CP] Embed Pods Frameworks */,
+				26DE5D2301E6CD0C8E1AA0A8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -975,21 +964,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0AA5FB9176AC98BE1479CC5A /* [CP] Embed Pods Frameworks */ = {
+		26DE5D2301E6CD0C8E1AA0A8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShopTest/Pods-ShopTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ShopTest-ShopTestUITests/Pods-ShopTest-ShopTestUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShopTest/Pods-ShopTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ShopTest-ShopTestUITests/Pods-ShopTest-ShopTestUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShopTest/Pods-ShopTest-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShopTest-ShopTestUITests/Pods-ShopTest-ShopTestUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D23F570C5D22CBD33C5A355 /* [CP] Check Pods Manifest.lock */ = {
@@ -1036,21 +1025,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B48B58A9F4D5DF2B06D68010 /* [CP] Embed Pods Frameworks */ = {
+		DEC3157830297BCCDF3D75AF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShopTest-ShopTestUITests/Pods-ShopTest-ShopTestUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ShopTest/Pods-ShopTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ShopTest-ShopTestUITests/Pods-ShopTest-ShopTestUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ShopTest/Pods-ShopTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShopTest-ShopTestUITests/Pods-ShopTest-ShopTestUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ShopTest/Pods-ShopTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F8D67C170C802AE457B8BC76 /* [CP] Check Pods Manifest.lock */ = {
@@ -1141,7 +1130,6 @@
 				B75F632D25B5DFC500D30F63 /* MainButton.swift in Sources */,
 				B7BC62C625B25166004624EA /* LaunchScreenInteractor.swift in Sources */,
 				B79ABC2825B7873100BCD22A /* QuantityProductLabel.swift in Sources */,
-				B7BC63D825B282B1004624EA /* GeoLocationManager.swift in Sources */,
 				B7E2BEAF25B3A1FB00733803 /* SearchWorker.swift in Sources */,
 				B7BC62E325B25F30004624EA /* SceneDelegate.swift in Sources */,
 				B7E2C02C25B4C3FD00733803 /* Pagin.swift in Sources */,
@@ -1175,11 +1163,11 @@
 				B79ABC6825B7B41900BCD22A /* DetailItemViewControllerTests.swift in Sources */,
 				B7E2BDBC25B3509100733803 /* KeychainWrapperTest.swift in Sources */,
 				B7E2BDFD25B3706100733803 /* LaunchScreenPresenterTests.swift in Sources */,
-				B7E2BDDC25B3699900733803 /* GeoLocationManagerTest.swift in Sources */,
 				B7E2BDFC25B3706100733803 /* LaunchScreenWorkerTests.swift in Sources */,
 				B7E2BE9F25B3A13600733803 /* SearchPresenterTests.swift in Sources */,
 				B7E2BE9C25B3A13600733803 /* SearchViewControllerTests.swift in Sources */,
 				B7E2BDFA25B3706100733803 /* LaunchScreenViewControllerTests.swift in Sources */,
+				B79ABFE825B7DD1800BCD22A /* AlertView.swift in Sources */,
 				B79ABC6925B7B41900BCD22A /* DetailItemInteractorTests.swift in Sources */,
 				B7E2BDCA25B3616800733803 /* ReachabilityTest.swift in Sources */,
 				B7B2004825B6A36C00B58FC0 /* Seeds.swift in Sources */,
@@ -1280,7 +1268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1337,7 +1325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1357,7 +1345,7 @@
 				CONFIGURATION = Develop;
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				INFOPLIST_FILE = ShopTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1380,7 +1368,7 @@
 				CONFIGURATION = Release;
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				INFOPLIST_FILE = ShopTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1403,6 +1391,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				INFOPLIST_FILE = ShopTestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1426,6 +1415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				INFOPLIST_FILE = ShopTestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1486,7 +1476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1508,7 +1498,7 @@
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = ShopTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1517,6 +1507,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.felipe.ShopDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = Develop;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1531,6 +1522,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				INFOPLIST_FILE = ShopTestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1592,7 +1584,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1613,7 +1605,7 @@
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = ShopTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1623,6 +1615,7 @@
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = QA;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1637,6 +1630,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				INFOPLIST_FILE = ShopTestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1659,6 +1653,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				INFOPLIST_FILE = ShopTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1680,6 +1675,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				INFOPLIST_FILE = ShopTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1701,6 +1697,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				INFOPLIST_FILE = ShopTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1723,6 +1720,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4V4VJ2V53;
 				INFOPLIST_FILE = ShopTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

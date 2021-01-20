@@ -21,6 +21,7 @@ class LaunchScreenPresenterTests: XCTestCase{
     }
     
     override func tearDown(){
+        sut = nil
         super.tearDown()
     }
     

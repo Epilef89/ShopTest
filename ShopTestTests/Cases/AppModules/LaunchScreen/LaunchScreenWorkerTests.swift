@@ -21,6 +21,7 @@ class LaunchScreenWorkerTests: XCTestCase{
     }
     
     override func tearDown(){
+        sut = nil
         super.tearDown()
     }
     
